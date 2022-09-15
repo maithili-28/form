@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>TEXT INPUT FIELDS</h1>
+        
+<form id = 'user form'>
+    <table>
+    <style>
+        input#name:invalid :focus {
+            border: 1px;color: red;
+        }
+     </style>
+
+     <tr>
+        <td>
+    <label style="color: blue ;" for="name">Name</label>
+    <input type="text" id="name" name="name">
+        </td>
+     </tr>
+    <tr>
+        <td>
+    <label style="color: blue ;" for="email">Email</label>
+    <input required type="email" id="email" name="email">
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+    <label style="color: blue ;column-gap: 10cm;" for="password">Password</label>
+    <input required type="password" id="password" name="password">
+    </td>
+    </tr>
+ 
+    <tr>
+        <td>
+    <label style="color: blue ;" for="dob">Date of Birth</label>
+    <input required type="date" id="dob" name="dob">
+    </td>
+    </tr>
+     
+    <tr>
+        <td>
+    <input required type="checkbox" id="acceptTerms" name="acceptTerms">
+    <label style="color: blue ;" for="acceptTerms">Accept Terms & Conditions</label>
+    </td>
+    </tr>
+ 
+    <button type="submit">Submit</button></table>
+    <script>
+        const email = document.getElementById('email');
+        email.addEventListener('input',() => validate(email));
+        const submit = document.getElementById('submit');
+        submit.addEventListener('click',() => validate(email));
+        function validate(element){
+            if (element.validity.typeMismatch){
+                element.setCustomValidity("The email is not valid in the right formt");
+                element.reportValidity();
+            } else {
+                element.setCustomValidity('');
+            }
+        }
+    </script>
+    </table>
+ </form>
+    <div 
+     class = "relative bg white px=6 mt-5 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:rounded-lg sm:px-10">
+     <div
+        class = "mx-auto">
+        <h2 class="text-3xl text-centre font-bold leading-tight">Entries</h2>
+        <div class="divide-y divide-gray-300/50" id="user-entries"></div>
+     </div>
+ <script>
+    src = './form.js'
+ </script>
+ </body>
+ </html>
